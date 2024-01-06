@@ -7,7 +7,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 print("done")
 
-df = pd.read_csv()
+df = pd.read_csv('credit.csv')
 # The response variable will be 'Balance.'
 x = df.drop('Balance', axis=1)
 y = df['Balance']
