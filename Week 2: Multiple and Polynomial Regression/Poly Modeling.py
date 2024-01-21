@@ -1,3 +1,11 @@
+#Df.head()
+#	x	y
+#0	-3.292157	-46.916988
+#1	0.799528	-3.941553
+#2	-0.936214	-2.800522
+#3	-4.722680	-103.030914
+#4	-3.602674	-54.020819
+
 #import the required libraries
 import numpy as np
 import pandas as pd
@@ -5,6 +13,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 %matplotlib inline
+print("done")
 
 # Read the data from 'poly.csv' to a dataframe
 df = pd.read_csv('poly.csv')
@@ -12,14 +21,6 @@ df = pd.read_csv('poly.csv')
 x = df[['x']].values
 y = df['y'].values
 
-df.head()
-
-#	x	y
-#0	-3.292157	-46.916988
-#1	0.799528	-3.941553
-#2	-0.936214	-2.800522
-#3	-4.722680	-103.030914
-#4	-3.602674	-54.020819
 # Plot x & y to visually inspect the data
 
 fig, ax = plt.subplots()
@@ -30,7 +31,7 @@ ax.set_title('$y$ vs $x$');
 
 # Fit a linear model on the data
 model = LinearRegression()
-model.fit(x,y)
+model.fit(x, y)
 
 # Get the predictions on the entire data using the .predict() function
 y_lin_pred = model.predict(x)
@@ -102,10 +103,10 @@ ax[0].set_xlabel('Residuals')
 ax[0].set_ylabel('Frequency')
 
 #Plot the histograms for the polynomial regression
-ax[0].hist(poly_residuals, bins,label = "Poly Residual")
+ax[0].hist(poly_residuals, bins, label = "Poly Residual")
 
 #Plot the histograms for the linear regression
-ax[0].hist(lin_residuals, bins, label = "Linear Residuals")
+#ax[0].hist(lin_residuals, bins, label = "Linear Residual")
 
 ax[0].legend(loc = 'upper left')
 
@@ -117,4 +118,3 @@ ax[1].set_xlabel('Predicted values')
 ax[1].set_ylabel('Residuals')
 
 fig.suptitle('Residual Analysis (Linear vs Polynomial)');
-
